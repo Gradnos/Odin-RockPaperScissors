@@ -19,22 +19,36 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-    let roundResult = "none";
-    if (computerSelection === playerSelection)  roundResult = "Draw, both players chose same";
+    let roundData;
+    if (computerSelection === playerSelection)  roundData = ["Draw, both players chose same", "draw"];
     else if (playerSelection === "rock") {
-        if (computerSelection === "paper") roundResult = "Computer wins, paper beats rock";
-        if (computerSelection === "scissors") roundResult = "Player wins, rock beats scissors";
+        if (computerSelection === "paper") roundData = ["Computer wins, paper beats rock", "computer"];
+        if (computerSelection === "scissors") roundData = ["Player wins, rock beats scissors", "player"];
     }
     else if (playerSelection === "paper") {
-        if (computerSelection === "rock") roundResult = "Player wins, paper beats rock";
-        if (computerSelection === "scissors") roundResult = "Computer wins, scissors beat paper";
+        if (computerSelection === "rock") roundData = ["Player wins, paper beats rock", "player"];
+        if (computerSelection === "scissors") roundData = ["Computer wins, scissors beat paper", "computer"];
     }
     else if (playerSelection === "scissors") {
-        if (computerSelection === "rock") roundResult = "Computer wins, rock beats scissors";
-        if (computerSelection === "paper") roundResult = "Player wins, scissors beat paper";
+        if (computerSelection === "rock") roundData = ["Computer wins, rock beats scissors", "computer"];
+        if (computerSelection === "paper") roundData = ["Player wins, scissors beat paper", "player"];
     }
-    console.log(computerSelection);
-    return(roundResult);
+    console.log(`${playerSelection} / ${computerSelection} / ${roundData} \n`);
+    return(roundData);
 }
 
-alert(playRound(prompt("rock paper scissors"), getComputerChoice()));;
+function game()
+{
+    for (let i = 0; i < 5; i++){
+
+    }
+}
+
+// 1000 computer vs computer games
+for (i = 0; i < 10; i++){
+    playRound(getComputerChoice(), getComputerChoice());
+}
+
+
+//player vs computer
+//alert(playRound(prompt("rock paper scissors"), getComputerChoice()));;
