@@ -9,8 +9,26 @@ body{
     align-items: stretch;
 }
 
-.playerSide,
-.computerSide,
-.gameArea{
-    flex:1;
+.bg{
+    background-color: #03C988;
 }
+
+.playerSide,
+.computerSide
+{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+}
+.gameArea
+{
+    flex:1.5;
+    box-shadow: 0 0 50px #000000;
+    z-index: 1;
+
+
+}
+
+
