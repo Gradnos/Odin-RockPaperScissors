@@ -70,7 +70,7 @@ function displayData(roundMessage, playerScore, computerScore){
 }
 
 
-game();
+//game();
 
 // 1000 computer vs computer games
 // for (i = 0; i < 10; i++){

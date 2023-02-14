@@ -1,0 +1,16 @@
+html,
+body{
+    margin: 0px;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    align-items: stretch;
+}
+
+.playerSide,
+.computerSide,
+.gameArea{
+    flex:1;
+}
