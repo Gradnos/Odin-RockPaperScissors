@@ -2,6 +2,7 @@ html,
 body{
     margin: 0px;
     height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -14,21 +15,33 @@ body{
 }
 
 .playerSide,
-.computerSide
-{
+.computerSide{
     flex:1;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 
 }
-.gameArea
-{
+.gameArea{
     flex:1.5;
     box-shadow: 0 0 50px #000000;
     z-index: 1;
+}
 
+.name{
+    flex:1;
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background-color: #4a9cc0;
+    color : #a7ffbd;
+    box-shadow: 0 0 30px #000000;
+}
 
+.score{
+    flex:7;
 }
 
 
