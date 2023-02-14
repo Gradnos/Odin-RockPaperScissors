@@ -4,6 +4,10 @@ body{
     height: 100%;
     font-family: 'Poppins', sans-serif;
 }
+p{
+    margin: 0;
+    padding: 0;
+}
 
 body{
     display: flex;
@@ -29,8 +33,7 @@ body{
 }
 
 .name{
-    flex:1;
-    padding: 0.5em;
+    flex :1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +44,12 @@ body{
 }
 
 .score{
-    flex:7;
+    flex : 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20em;
+    color : #301c86;
 }
 
 
