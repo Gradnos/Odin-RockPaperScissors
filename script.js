@@ -1,3 +1,16 @@
+const gameArea = document.querySelector(".gameArea");
+const playerSide = document.querySelector(".playerSide");
+const computerSide = document.querySelector(".computerSide");
+
+const playerScore = playerSide.querySelector(".playerScore");
+const computerScore = computerSide.querySelector(".computerScore");
+
+const pScore = playerScore.querySelector("#pScore");
+const cScore = computerScore.querySelector("#cScore");
+
+console.log(pScore);
+console.log(cScore)
+
 function getComputerChoice(){
     let caseNumber = Math.floor(Math.random()*3 + 1);
     let choice = "none"
@@ -66,11 +79,12 @@ function game()
 }
 
 function displayData(roundMessage, playerScore, computerScore){
-    console.log(`${roundMessage} \n Player Score : ${playerScore} /// Computer Score : ${computerScore}`);
+    pScore.textContent = `${playerScore}`;
+    cScore.textContent = `${computerScore}`;
 }
 
 
-//game();
+game();
 
 // 1000 computer vs computer games
 // for (i = 0; i < 10; i++){
