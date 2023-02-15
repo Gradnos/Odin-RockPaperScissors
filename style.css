@@ -27,17 +27,38 @@ body{
 
 }
 .gameArea{
+    display: flex;
+    flex-direction : column;
     flex:1.5;
     box-shadow: 0 0 50px #000000;
     z-index: 1;
 }
+
+.choices{
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+    width: 100%;
+}
+
+img{
+    height: auto;
+    width: 10vw;
+}
+
+.choiceCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .name{
     flex :1;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    font-size: 5vw;
     background-color: #4a9cc0;
     color : #a7ffbd;
     box-shadow: 0 0 30px #000000;
@@ -48,7 +69,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20em;
+    font-size: 20vw;
     color : #bfecff;
 }
 
