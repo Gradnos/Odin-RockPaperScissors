@@ -5,6 +5,11 @@ body{
     height: 100%;
     font-family: 'Poppins', sans-serif;
 }
+
+img{
+    -webkit-user-drag: none;
+}
+
 p{
     margin: 0;
     padding: 0;
@@ -28,20 +33,23 @@ body{
 
 }
 .gameArea{
-    padding: 2vw;
+    padding: 3vw;
     display: flex;
     flex-direction : column;
+    justify-content: space-around;
     flex:1.5;
     box-shadow: 0 0 50px #000000;
     z-index: 1;
 }
 
 .choices{
+    flex:1;
     display: flex;
     justify-content: center;
     font-size: 1.2vw;
     gap: 5vw;
     width: 100%;
+    margin : 1vh;
 }
 
 img{
@@ -52,20 +60,53 @@ img{
 .choiceCont{
     border-radius: 2vw;
     border: 0.3vw solid #000000;
-    width: 15vw;
+    width: 40%;
     padding: 1vw;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+    gap : 3vw;
+}
+
+.chooseArea{
+    flex:3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+}
+
+.chooseOne{
+    font-size: 3vw;
+}
+
+.choose{
+    cursor: pointer;
+}
+.confirm{
+    font: inherit;
+    font-size: 3vw;
+    background: none;
+    border: none;
+    padding: 1vw;
+    cursor: pointer;
+    outline : inherit;
+    border-radius: 2vw;
+    border: 0.3vw solid black;
+}
 
 .name{
     flex :1;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5vw;
+    font-size: 4vw;
     background-color: #4a9cc0;
     color : #a7ffbd;
     box-shadow: 0 0 30px #000000;
