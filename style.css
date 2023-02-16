@@ -48,6 +48,10 @@ body{
     background-color: #03C988;
 }
 
+.resultArea{
+    font-size: 2rem;
+}
+
 .playerSide,
 .computerSide{
     flex:1;

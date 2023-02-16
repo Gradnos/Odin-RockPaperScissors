@@ -1,4 +1,5 @@
 let playerchoice = null;
+let playerScoreNum = 0, computerScoreNum = 0;
 console.log(playerchoice);
 
 const rockLink = "https://cdn-icons-png.flaticon.com/512/1213/1213131.png";
@@ -20,6 +21,9 @@ const cScore = computerScore.querySelector("#cScore");
 const chooseRock = document.querySelector("chooseRock");
 const choosePaper = document.querySelector("choosePaper");
 const chooseScissors = document.querySelector("chooseScissors");
+
+const resultArea = document.querySelector(".resultArea");
+console.log(resultArea);
 
 const pImg = document.querySelector("#pImg");
 const cImg = document.querySelector("#cImg");
@@ -61,11 +65,15 @@ confirm.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("selected");
 });
 confirm.addEventListener("click", (e) =>{
+    if(confirm.innerText === "Restart"){
+        location.reload();
+    }
     e.target.classList.remove("selected");
     choiceConts.forEach(element1 => {
         element1.classList.remove("clicked");
     })
-    displayData(playRound(playerchoice, getComputerChoice()));
+    if(playerchoice !== null) displayData(playRound(playerchoice, getComputerChoice()));
+    playerchoice = null;
 });
 
 
@@ -112,33 +120,6 @@ function playRound(playerSelection, computerSelection){
     return(roundData);
 }
 
-function game()
-{
-    let playerScore = 0, computerScore = 0;
-    let playerSelection, computerSelection;
-    for (let i = 0; i < 5; i++){
-        playerSelection = prompt("What do you play \n Rock , Paper, Scissors");
-        computerSelection = getComputerChoice();
-        roundData = playRound(playerSelection,computerSelection);
-        if(roundData[1] === "computer"){
-            computerScore++;
-            displayData(roundData[0], playerScore, computerScore);
-        }
-        if(roundData[1] === "player"){
-            playerScore++;
-            displayData(roundData[0], playerScore, computerScore);
-        }
-        if(roundData[1] === "draw"){
-            displayData(roundData[0], playerScore, computerScore);
-        }
-    }
-
-    if(playerScore > computerScore) console.log("Player Won!");
-    if(playerScore < computerScore) console.log("Computer Won!");
-    if(playerScore === computerScore) console.log("Draw!");
-
-
-}
 
 function displayData(data){
     console.log(data);
@@ -162,10 +143,30 @@ function displayData(data){
         cImg.src=questionLink;
     }
 
-    
+    if(data[1] === 1){
+        playerScoreNum++;
+        pScore.innerText = playerScoreNum;
+    }
+    if(data[2] === 1){
+        computerScoreNum++;
+        cScore.innerText = computerScoreNum;
+    }
+
+    if(playerScoreNum === 3){
+        showWinner("Player");    
+    }
+    if(computerScoreNum === 3){
+        showWinner("Computer");
+    }
 
     // pScore.textContent = `${playerScore}`;
     // cScore.textContent = `${computerScore}`;
+}
+
+function showWinner(winner){
+    resultArea.innerText = `${winner} won the game!`
+    confirm.innerText = "Restart";
+    confirm.classList.add("selected");
 }
 
 
