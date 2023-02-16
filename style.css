@@ -13,7 +13,7 @@ body{
 }
 
 .choose.clicked{
-    background-color: rgb(0, 255, 64);
+    background-color: #4a9cc0;
 }
 
 .confirm.selected{
@@ -82,7 +82,8 @@ img{
 }
 
 .choiceCont{
-
+    border-radius: 2vw;
+    border: 0.3vw solid #000000;
     width: 40%;
     padding: 1vw;
     display: flex;

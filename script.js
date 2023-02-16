@@ -1,6 +1,12 @@
 let playerchoice = null;
 console.log(playerchoice);
 
+const rockLink = "https://cdn-icons-png.flaticon.com/512/1213/1213131.png";
+const paperLink = "https://cdn-icons-png.flaticon.com/512/5812/5812594.png";
+const scissorsLink = "https://cdn-icons-png.flaticon.com/512/4339/4339856.png";
+const questionLink = "https://cdn-icons-png.flaticon.com/512/3106/3106703.png";
+
+
 const gameArea = document.querySelector(".gameArea");
 const playerSide = document.querySelector(".playerSide");
 const computerSide = document.querySelector(".computerSide");
@@ -15,6 +21,9 @@ const chooseRock = document.querySelector("chooseRock");
 const choosePaper = document.querySelector("choosePaper");
 const chooseScissors = document.querySelector("chooseScissors");
 
+const pImg = document.querySelector("#pImg");
+const cImg = document.querySelector("#cImg");
+
 const choiceConts = document.querySelectorAll(".choose");
 choiceConts.forEach(element => {
     console.log(element);
@@ -26,12 +35,19 @@ choiceConts.forEach(element => {
     });
 
     element.addEventListener("click", (e) => {
-
+        choiceConts.forEach(element1 => {
+            element1.classList.remove("clicked");
+        })
         e.target.classList.add("clicked");
-    }, );
-    element.addEventListener("mouseup", (e) => {
-        console.log("aaa");
-        e.target.classList.remove("clicked");
+        if(e.target.classList.contains("chooseRock")){
+            playerchoice="rock";
+        }
+        if(e.target.classList.contains("choosePaper")){
+            playerchoice="paper";
+        }
+        if(e.target.classList.contains("chooseScissors")){
+            playerchoice="scissors";
+        }
     });
 });
 
@@ -44,9 +60,14 @@ confirm.addEventListener("mouseenter", (e) => {
 confirm.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("selected");
 });
-confirm.addEventListener("mouseleave", (e) => {
+confirm.addEventListener("click", (e) =>{
     e.target.classList.remove("selected");
+    choiceConts.forEach(element1 => {
+        element1.classList.remove("clicked");
+    })
+    displayData(playRound(playerchoice, getComputerChoice()));
 });
+
 
 //console.log(choiceConts);
 
@@ -72,19 +93,21 @@ function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     let roundData;
-    if (computerSelection === playerSelection)  roundData = ["Draw, both players chose same", "draw"];
+    if (computerSelection === playerSelection)  roundData = ["Draw, both players chose same", 0 , 0];
     else if (playerSelection === "rock") {
-        if (computerSelection === "paper") roundData = ["Computer wins, paper beats rock", "computer"];
-        if (computerSelection === "scissors") roundData = ["Player wins, rock beats scissors", "player"];
+        if (computerSelection === "paper") roundData = ["Computer wins, paper beats rock", 0, 1];
+        if (computerSelection === "scissors") roundData = ["Player wins, rock beats scissors", 1, 0];
     }
     else if (playerSelection === "paper") {
-        if (computerSelection === "rock") roundData = ["Player wins, paper beats rock", "player"];
-        if (computerSelection === "scissors") roundData = ["Computer wins, scissors beat paper", "computer"];
+        if (computerSelection === "rock") roundData = ["Player wins, paper beats rock", 1, 0];
+        if (computerSelection === "scissors") roundData = ["Computer wins, scissors beat paper", 0, 1];
     }
     else if (playerSelection === "scissors") {
-        if (computerSelection === "rock") roundData = ["Computer wins, rock beats scissors", "computer"];
-        if (computerSelection === "paper") roundData = ["Player wins, scissors beat paper", "player"];
+        if (computerSelection === "rock") roundData = ["Computer wins, rock beats scissors", 0, 1];
+        if (computerSelection === "paper") roundData = ["Player wins, scissors beat paper", 1, 0];
     }
+    roundData[3] = playerSelection;
+    roundData[4] = computerSelection;
     console.log(`Your Selection : ${playerSelection} / Computers Selection : ${computerSelection}`);
     return(roundData);
 }
@@ -117,9 +140,32 @@ function game()
 
 }
 
-function displayData(roundMessage, playerScore, computerScore){
-    pScore.textContent = `${playerScore}`;
-    cScore.textContent = `${computerScore}`;
+function displayData(data){
+    console.log(data);
+    if(data[3] === "rock"){
+        pImg.src=rockLink;
+    }else if(data[3] === "paper"){
+        pImg.src=paperLink;
+    }else if(data[3] === "scissors"){
+        pImg.src=scissorsLink;
+    }else{
+        pImg.src=questionLink;
+    }
+
+    if(data[4] === "rock"){
+        cImg.src=rockLink;
+    }else if(data[4] === "paper"){
+        cImg.src=paperLink;
+    }else if(data[4] === "scissors"){
+        cImg.src=scissorsLink;
+    }else{
+        cImg.src=questionLink;
+    }
+
+    
+
+    // pScore.textContent = `${playerScore}`;
+    // cScore.textContent = `${computerScore}`;
 }
 
 
