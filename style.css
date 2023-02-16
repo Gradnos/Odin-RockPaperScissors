@@ -10,7 +10,7 @@ body{
 .choose.selected{
     background-color: rgb(186, 252, 203);
     scale: 1.2;
-    border-radius: 0;
+    border-radius: 0px;
 }
 
 .choose.clicked{
