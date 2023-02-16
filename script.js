@@ -24,10 +24,17 @@ choiceConts.forEach(element => {
     element.addEventListener("mouseleave", (e) => {
         e.target.classList.remove("selected");
     });
+
     element.addEventListener("click", (e) => {
+
         e.target.classList.add("clicked");
+    }, );
+    element.addEventListener("mouseup", (e) => {
+        console.log("aaa");
+        e.target.classList.remove("clicked");
     });
 });
+
 
 
 const confirm = document.querySelector(".confirm");
