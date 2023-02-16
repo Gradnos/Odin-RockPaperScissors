@@ -8,8 +8,24 @@ const computerScore = computerSide.querySelector(".computerScore");
 const pScore = playerScore.querySelector("#pScore");
 const cScore = computerScore.querySelector("#cScore");
 
-console.log(pScore);
-console.log(cScore)
+const chooseRock = document.querySelector("chooseRock");
+const choosePaper = document.querySelector("choosePaper");
+const chooseScissors = document.querySelector("chooseScissors");
+
+const choiceConts = document.querySelectorAll(".choose");
+choiceConts.forEach(element => {
+    console.log(element);
+    element.addEventListener("mouseenter", (e) => {
+        e.target.classList.add("selected");
+    });
+    element.addEventListener("mouseleave", (e) => {
+        console.log("b");
+        e.target.classList.remove("selected");
+    });
+});
+
+
+//console.log(choiceConts);
 
 function getComputerChoice(){
     let caseNumber = Math.floor(Math.random()*3 + 1);
