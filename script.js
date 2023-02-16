@@ -1,3 +1,6 @@
+let playerchoice = null;
+console.log(playerchoice);
+
 const gameArea = document.querySelector(".gameArea");
 const playerSide = document.querySelector(".playerSide");
 const computerSide = document.querySelector(".computerSide");
@@ -19,11 +22,24 @@ choiceConts.forEach(element => {
         e.target.classList.add("selected");
     });
     element.addEventListener("mouseleave", (e) => {
-        console.log("b");
         e.target.classList.remove("selected");
+    });
+    element.addEventListener("click", (e) => {
+        e.target.classList.add("clicked");
     });
 });
 
+
+const confirm = document.querySelector(".confirm");
+confirm.addEventListener("mouseenter", (e) => {
+    e.target.classList.add("selected");
+});
+confirm.addEventListener("mouseleave", (e) => {
+    e.target.classList.remove("selected");
+});
+confirm.addEventListener("mouseleave", (e) => {
+    e.target.classList.remove("selected");
+});
 
 //console.log(choiceConts);
 
