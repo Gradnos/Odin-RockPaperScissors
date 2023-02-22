@@ -67,6 +67,7 @@ confirm.addEventListener("mouseleave", (e) => {
 confirm.addEventListener("click", (e) =>{
     if(confirm.innerText === "Restart"){
         location.reload();
+        return;
     }
     e.target.classList.remove("selected");
     choiceConts.forEach(element1 => {
